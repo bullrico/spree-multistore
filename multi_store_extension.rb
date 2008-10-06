@@ -10,7 +10,7 @@ class MultiStoreExtension < Spree::Extension
     # map.namespace :admin do |admin|
     #   admin.resources :whatever
     # end 
-    map.root :controller => "stores", :action => "index"
+    # map.root :controller => "stores", :action => "index"
     map.resources :stores 
   end
   
@@ -25,8 +25,8 @@ class MultiStoreExtension < Spree::Extension
       before_filter :get_store_and_product, :only => :show
 
       def get_store_and_products
-        # @store = current_store
-        # @products = @store.products
+        @store = current_store
+        @products = @store.products
       end
   
       def get_store_and_product

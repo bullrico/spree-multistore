@@ -22,8 +22,8 @@ class Store < ActiveRecord::Base
     name.downcase!
     name.strip!
     name.sub! /^www\./, ''
-    sites = find :all, :conditions => ['host = ? or host = ?', name, '']
-    sites.reject { |s| s.default? }.first || sites.first
+    stores = find :all, :conditions => ['host = ? or host = ?', name, '']
+    stores.reject { |s| s.default? }.first || stores.first
   end
   
   def default?

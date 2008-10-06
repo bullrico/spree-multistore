@@ -1,0 +1,13 @@
+- fields_for :store do |s|
+  %fieldset
+    %table
+      %tr 
+        %td Site name
+        %td
+          = error_message_on :store, :name
+          = s.text_field :name
+      %tr 
+        %td Host
+        %td
+          = error_message_on :store, :host
+          = s.text_field :host

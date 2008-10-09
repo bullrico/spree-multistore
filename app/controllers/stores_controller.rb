@@ -5,6 +5,8 @@ class StoresController < Spree::BaseController
   end
   
   def show
-    @store = current_store
+    @store = Store.find(params[:id])
+    self.current_store = @store
+    redirect_to products_path
   end
 end

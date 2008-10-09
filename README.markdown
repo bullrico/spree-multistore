@@ -6,6 +6,10 @@ Individual stores are accessed like this:
 <pre>
 http://example.com/store1 and http://example.com/store2
 </pre>
-A partial is added to the users/new form for the store info (views use HAML/SASS)
 
+Admin URL:
+<pre>
+http://example.com/admin
+</pre>
+Store will be read via a current_store method using session[:store_id], similar to current_user
 

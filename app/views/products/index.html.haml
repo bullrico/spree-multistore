@@ -1,0 +1,12 @@
+%h1= @store.name
+
+#product-listing
+  = breadcrumbs(@taxon)
+  %br
+  = render :partial => "shared/products.html.erb", :locals => {:products => @products }
+
+- content_for :sidebar do 
+  
+  %td{ :id => "shop-by-col", :valign => "top"}
+    = render :partial => "shared/taxonomies"
+  = render :partial => 'shared/paginate', :locals => {:collection => @products, :options => {}} unless @products.empty?

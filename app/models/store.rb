@@ -4,17 +4,14 @@ class Store < ActiveRecord::Base
   
   has_many :users  
   has_many :products
-
+  has_many :taxonomies
+  
   validates_presence_of   :name
-  validates_uniqueness_of :host
   
-  # From Altered Beast - an empty host field makes it the default store to display
-  def host=(value)
-    write_attribute :host, value.to_s.downcase
-  end
+  make_permalink :with => :name, :field => :permalink
   
-  def self.main
-    @main ||= find :first, :conditions => {:host => ''}
+  def self.default
+    @default ||= find :first, :conditions => {:host => ''}
   end
   
   def self.find_by_host(name)
